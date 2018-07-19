@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family: Arial;
+    color: white;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background-color: #f9f9f9;
+	 
+	
+}
+
+.right {
+    right: 0;
+    background-color: #2C3034 ;
+	border-left: 5px solid grey;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.centered {
+    position: absolute;
+    top: 0;
+    left: 0;
+	  padding: 10px 18px;
+    margin: 4px 0;
+    text-align: center;
+}
+
+
+.centered input
+{
+	float: left;
+	top : 50 px;
+    width: 75%;
+    margin-top: 6px;
+    box-sizing: border-box;
+    border: 2px solid #03A9F4;
+    border-radius: 4px;
+}
+
+.button {
+    background-color: #03A9F4; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+<script type="text/javascript">
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<div class="split left">
+  <div class="centered">
+  <div class="split up">
+    <p>Drag the W3Schools image into the rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+  </div>
+  <div class="split bottom">
+  <form>
+  <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="Code Here.." style="width: 720px; height:650px;"></textarea>
+      </div>
+	  <button class="button button2"> Run </button>
+
+</form>
+</div>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+   
+  </div>
+</div>
+     
+</body>
+</html> 
